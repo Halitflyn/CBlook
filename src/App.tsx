@@ -35,8 +35,8 @@ function ExportButtons() {
 
     const nodesBounds = getNodesBounds(nodes);
     const padding = 50;
-    const width = nodesBounds.width + padding * 2;
-    const height = nodesBounds.height + padding * 2;
+    const width = Math.ceil(nodesBounds.width) + padding * 2;
+    const height = Math.ceil(nodesBounds.height) + padding * 2;
 
     const viewportElement = document.querySelector('.react-flow__viewport') as HTMLElement;
     if (!viewportElement) return;
@@ -54,6 +54,7 @@ function ExportButtons() {
       backgroundColor: '#f8fafc',
       width,
       height,
+      pixelRatio: 3, // Збільшуємо роздільну здатність у 3 рази для високої якості
       style: {
         width: `${width}px`,
         height: `${height}px`,
